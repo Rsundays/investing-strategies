@@ -16,7 +16,7 @@ Bootstrap(app)
 
 # Connect to db
 DB = os.environ.get("DB")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", DB)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL1", DB)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 oauth = OAuth(app)
