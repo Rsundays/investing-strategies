@@ -1,0 +1,168 @@
+
+html {
+	 font-size: 18px;
+	 line-height: 1.5;
+	 font-weight: 300;
+	 color: #333;
+	 font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  background-image: url("images/Inve.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #ecf0f9;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+.btn-google {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
+}
+
+*, *:before, *:after {
+	 box-sizing: border-box;
+}
+
+.large {
+     font-size: 3rem;
+}
+
+ .content {
+	 display: flex;
+	 margin: 0 auto;
+	 justify-content: center;
+	 align-items: center;
+	 flex-wrap: wrap;
+	 max-width: 1500px;
+}
+
+ p.overview {
+	 font-size: 12px;
+	 height: 200px;
+	 width: 100%;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
+}
+ .heading {
+	 width: 100%;
+	 margin-left: 1rem;
+	 font-weight: 900;
+	 font-size: 1.9rem;
+	 text-transform: uppercase;
+	 letter-spacing: 0.1ch;
+	 line-height: 1;
+	 padding-bottom: 0.5em;
+	 margin-bottom: 1rem;
+	 position: relative;
+	 color: white;
+
+}
+ .heading:after {
+	 display: block;
+	 content: '';
+	 position: absolute;
+	 width: 60px;
+	 height: 4px;
+	 background: linear-gradient(135deg, #1a9be6, #1a57e6);
+	 bottom: 0;
+}
+
+ .adding {
+    margin-top: 50px;
+    padding: 1em 2em 1em 2em;
+    color: white;
+    text-align: center;
+ }
+ .description {
+	 width: 100%;
+	 font-size: 1.1rem;
+	 margin-top: 0;
+	 margin-left: 1rem;
+	 margin-bottom: 3rem;
+	 color: white;
+}
+
+ .btns {
+    padding-bottom:15%;
+ }
+ .button {
+	 transform: translateZ(40px);
+	 cursor: pointer;
+	 -webkit-backface-visibility: hidden;
+	 backface-visibility: hidden;
+	 font-weight: bold;
+	 color: black;
+	 padding: 0.5em 1em;
+	 border-radius: 100px;
+	 font: inherit;
+	 background: white;
+	 border: none;
+	 position: relative;
+	 transform-style: preserve-3d;
+	 transition: 300ms ease;
+}
+ .button:before {
+	 transition: 300ms ease;
+	 position: absolute;
+	 display: block;
+	 content: '';
+	 transform: translateZ(-40px);
+	 -webkit-backface-visibility: hidden;
+	 backface-visibility: hidden;
+	 height: calc(100% - 20px);
+	 width: calc(100% - 20px);
+	 border-radius: 100px;
+	 left: 10px;
+	 top: 16px;
+	 box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
+	 background-color: rgba(26, 87, 230, 0.25);
+}
+
+x rgba(230, 87, 230, 0.25);
+}
+ .button:hover {
+	 transform: translateZ(55px);
+}
+ .button:hover:before {
+	 transform: translateZ(-55px);
+}
+ .button:active {
+	 transform: translateZ(20px);
+}
+ .button:active:before {
+	 transform: translateZ(-20px);
+	 top: 12px;
+	 top: 12px;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8em;
+    line-height: 1em;
+    margin: 2em 0 0 0;
+    padding: 0 0 2em 0;
+    text-align: center;
+}
+
+.copyright li {
+    border-left: solid 1px rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    list-style: none;
+    margin-left: 1.5em;
+    padding-left: 1.5em;
+}

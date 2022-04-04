@@ -1,0 +1,35 @@
+{% include "header.html" %}
+
+<!-- Section Title -->
+<div class="container-fluid">
+    <div class="row text-center">
+        <header>
+            <h1 class="strategy-title">Trading Image Category Filtering</h1>
+        </header>
+    </div>
+</div>
+<div class="container">
+    <h1>{{ selected_trade.name }}</h1>
+    <div class="row">
+        <div class="col-8">
+            <img class="selected_image" src="{{ selected_trade.img_url }}">
+        </div>
+        <div class="col-4">
+            <p> These are the existing tags:</p>
+            <p class="tags-label"> {% for tag in trade_tags: %} {{tag}} {% endfor %}</p>
+        </div>
+    </div>
+    {% if role == "Admin" %}
+    <form action="{{ url_for('select', trade_id=selected_trade.id) }}" method="POST">
+        <div class="row">
+            <div class="col-6"><a class="trade-btn" href="{{ url_for('edit_trade', trade_id=selected_trade.id) }}"><i
+                    class="fa fa-pencil-square-o"></i><span>Update</span></a></div>
+            <div class="col-6"><a class="trade-btn" href="{{ url_for('delete_trade', trade_id=selected_trade.id) }}"><i
+                    class="fa fa-trash"></i><span>Delete</span></a>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+{% include "footer.html" %}

@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;600&display=swap');
+
+/* Basic */
+
+html, body div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* Basic */
+
+	html {
+		box-sizing: border-box;
+	}
+
+	html, body {
+		background: #F7FEFD;
+	}
+
+
+	body, input, select, textarea {
+		color: rgba(0, 0, 50, 0.75);
+		font-family: 'Raleway', sans-serif;
+		font-size: 15pt;
+		font-weight: 100;
+		line-height: 1.75em;
+	}
+
+	p {
+		margin: 0 0 2em 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: black;
+		font-weight: 350;
+		line-height: 2em;
+		margin: 1em 0 0.5em 0;
+	}
+
+	ul {
+	    list-style-type: none;
+	}
+
+	a {
+	    color: inherit;
+	    text-decoration: none;
+	}
+
+	.strategy-title {
+        font-size: 2em;
+	    font-weight: 600;
+	}
+
+	.main-section {
+	    margin: 1em 0 1em 0;
+	}
+
+	.buy {
+	    display: flex;
+	    height: 2.5em;
+	    width: 50%;
+        border: 2px solid #07E079;
+        border-radius: 25px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 10px 10px 5px grey;
+        margin: 0 auto;
+	}
+
+	.buy, strong {
+        font-weight: 600;
+        text-shadow: 0 0 4px #07E079;
+        font-size: 1.5em;
+	}
+
+	.sell {
+	    display: flex;
+	    height: 2.5em;
+	    width: 50%;
+        border: 2px solid #A86A1D;
+        border-radius: 25px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 10px 10px 5px grey;
+        margin: 0 auto;
+	}
+
+	.sell, strong {
+        font-weight: 600;
+        text-shadow: 0 0 4px #A86A1D;
+        font-size: 1.5em;
+	}
+
+	.graph {
+	    display: flex;
+	    height: 14em;
+	    width: 90%;
+        border: 2px solid #508AA8;
+        border-radius: 25px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 1.5em;
+	}
+
+	.graph-title {
+	    margin-top: 0.2em;
+	    font-weight: 600;
+	}
+
+	.label-sup {
+	    display: flex;
+	    margin: 0.4em 0 0.4em 0;
+        line-height: 1.2em;
+        align-items: center;
+        font-weight: 700;
+	}
+
+	.values {
+        margin: 1em 0 1em 0;
+	    display: flex;
+	    height: 2em;
+	    width: 60%;
+	    border: 2px solid #508AA8;
+        border-radius: 25px;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+	}
+
+/* SIGNUP FORMS*/
+.form-control {
+	font-size: 15px;
+}
+.form-control, .form-control:focus, .input-group-text {
+	border-color: #e1e1e1;
+}
+.form-control, .btn {
+	border-radius: 3px;
+}
+.signup-form {
+	width: 400px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.signup-form form {
+	color: #999;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form h2 {
+	color: #333;
+	font-weight: bold;
+	margin-top: 0;
+}
+.signup-form hr {
+	margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+	margin-bottom: 20px;
+}
+.signup-form label {
+	font-weight: normal;
+	font-size: 15px;
+}
+.signup-form .form-control {
+	min-height: 38px;
+	box-shadow: none !important;
+}
+.signup-form .input-group-addon {
+	max-width: 42px;
+	text-align: center;
+}
+.signup-form .btn, .signup-form .btn:active {
+	font-size: 16px;
+	font-weight: bold;
+	background: #19aa8d !important;
+	border: none;
+	min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+	background: #179b81 !important;
+}
+.signup-form a {
+	color: #fff;
+	text-decoration: underline;
+}
+.signup-form a:hover {
+	text-decoration: none;
+}
+.signup-form form a {
+	color: #19aa8d;
+	text-decoration: none;
+}
+.signup-form form a:hover {
+	text-decoration: underline;
+}
+.signup-form .fa {
+	font-size: 21px;
+}
+.signup-form .fa-paper-plane {
+	font-size: 18px;
+}
+.signup-form .fa-check {
+	color: #fff;
+	left: 17px;
+	top: 18px;
+	font-size: 7px;
+	position: absolute;
+}
+
+.card {
+    margin-top: 1.5rem;
+}
+
+.card-header {
+    background-color: #FFB75E;
+    font-weight: bold;
+}
+
+.fa {
+    padding: 0 1rem 0 0;
+}
+
+.btn {
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+/* Footer */
+
+#footer {
+    background: #508AA8;
+    padding-bottom: 2em;
+}
+
+    #footer .icons .icon.alt {
+        text-decoration: none;
+    }
+
+        #footer .icons .icon.alt:before {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            text-transform: none !important;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 400;
+        }
+
+        #footer .icons .icon.alt:before {
+            color: #272833 !important;
+            text-shadow: 1px 0 0 rgba(255, 255, 255, 0.5), -1px 0 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+    #footer .copyright {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 1em;
+        line-height: 1em;
+        margin: 0.9em 0 0 0;
+        padding: 0;
+        text-align: center;
+    }
+
+        #footer .copyright li {
+            border-left: solid 1px rgba(255, 255, 255, 0.3);
+            display: inline-block;
+            list-style: none;
+            margin-left: 1.5em;
+            padding-left: 1.5em;
+        }
+
+            #footer .copyright li:first-child {
+                border-left: 0;
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            #footer .copyright li a {
+                color: inherit;
+            }
+
+/* MEDIA ADAPTABILITY */
+
+@media screen and (max-width: 576px) {
+	.strategy-title {
+        font-size: 1.5em;
+	    font-weight: 300;
+	}
+
+	.label {
+	    margin: 0.2em 0 0.2em 0;
+        line-height: 1.2em;
+        font-size: small;
+	}
+
+	.values {
+	    width: 50%;
+        font-size: medium;
+	}
+
+}
+
+/* INTRADAY */
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  color: white;
+  letter-spacing: 3px;
+}
+@media all and (max-width: 812px) {
+  .header {
+    font-size: 20px;
+  }
+}
+
+.filter-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-categories span {
+  padding: 0.25rem 0;
+  white-space: nowrap;
+}
+
+.filter-label {
+  display: block;
+  /* allow bottom and top margin to be set (push away filter labels above or below) */
+  margin-right: 1em;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  background: #ffe600;
+  transition: all 0.3s ease 0s;
+  font-size: 0.8rem;
+}
+.filter-label:hover {
+  cursor: pointer;
+  background: #ffc400;
+}
+@media all and (max-width: 812px) {
+  .filter-label {
+    font-size: 0.6rem;
+  }
+}
+
+.filter-input {
+  position: absolute;
+  /* align over label.. good for better for accessibilty on some touch devices for discoverability. https://css-tricks.com/the-checkbox-hack/ */
+  display: flex;
+  z-index: 1;
+  opacity: 0;
+  /* hide */
+}
+.filter-input:checked + label {
+  background-color: orange;
+  transform: translateX(3px);
+  box-shadow: none;
+}
+
+.filter-wrap {
+  position: relative;
+  display: grid;
+
+  grid-auto-flow: row;
+  grid-gap: 20px;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+  font-size: 75%;
+}
+@media all and (max-width: 812px) {
+  .filter-wrap {
+    grid-template-columns: repeat(auto-fit, 100px);
+    grid-gap: 10px;
+    font-size: 50%;
+  }
+}
+
+.filter-item {
+  position: relative;
+  border-radius: 5px;
+  background-color: #d8d8d8;
+  box-shadow: 5px 7px 6px black;
+}
+.filter-item:hover {
+  transition: all 0.9s ease both;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+}
+
+.img-container {
+  /*width: 400px;*/
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+.filter-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  /* crops image top and bottom in this case */
+  cursor: pointer;
+  transition: all 0.9s ease;
+}
+@media all and (max-width: 812px) {
+  .filter-item img {
+    height: 83.375px;
+  }
+}
+
+.img-adjust-1 {
+  object-position: 0;
+}
+
+.img-adjust-2 {
+  object-position: 100% 100%;
+}
+
+.hover-center:hover {
+  transform: scale(1.2);
+}
+
+.hover-top-left:hover {
+  transform: scale(1.2);
+  object-position: -70% -40%;
+}
+
+.hover-bottom-right:hover {
+  transform: scale(1.2);
+  object-position: 110% 120%;
+}
+
+.hover-bottom-left:hover {
+  transform: scale(1.2);
+  object-position: -50% -40%;
+}
+
+.hover-left:hover {
+  transform: scale(1.2);
+  object-position: -10% 50%;
+}
+
+.grid-card-text {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 5px;
+}
+@media all and (max-width: 812px) {
+  .grid-card-text {
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 3.3px;
+  }
+}
+
+.common-name {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+@media all and (max-width: 812px) {
+  .common-name {
+    font-size: 10px;
+    line-height: 1.5em;
+    margin-bottom: 8px;
+  }
+}
+
+.scientific-name {
+  font-size: 15px;
+  line-height: 20px;
+  font-style: italic;
+}
+@media all and (max-width: 812px) {
+  .scientific-name {
+    height: 30px;
+    font-size: 10px;
+    line-height: 1.5em;
+  }
+}
+
+.img-container {
+  position: relative;
+}
+
+.img-container img {
+  display: block;
+}
+
+.img-container .fa-exclamation-triangle {
+  position: absolute;
+  color: #ffe600;
+  background-color: red;
+  border-radius: 3px;
+  border: 4px solid red;
+  top: 0px;
+  right: 0px;
+}
+@media all and (max-width: 812px) {
+  .img-container .fa-exclamation-triangle {
+    font-size: 8px;
+  }
+}
+
+.filtered-inclusive .filter-item, .filtered-exclusive .filter-item, .filter-no-item {
+  display: none;
+}
+
+/* filtered-inclusive/filtered-exclusive class applied via js */
+.filtered-inclusive .filter-item.selected, .filtered-exclusive .filter-item:not(.selected) {
+  display: block;
+}
+
+/* filtered-inclusive/filtered-exclusive class applied via js */
+.filter-no-item.filter-no-item-active {
+  /* message stating no filter results */
+  display: block;
+  width: 100%;
+  background: #d8d8d8;
+  padding: 1em 1.5em;
+  margin: 0.75%;
+  border-radius: 0.25rem;
+  line-height: 1.2rem;
+}
+@media all and (max-width: 812px) {
+  .filter-no-item.filter-no-item-active {
+    line-height: 0.8rem;
+  }
+}
+
+.filter-mask-active {
+  /* cover each card (animation effect) */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #0a0a0a;
+  animation: filterMask 1s ease-in;
+}
+
+@keyframes filterMask {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.filter-no-item-active {
+  animation: filterMaskNoItems 1s ease-in;
+}
+
+@keyframes filterMaskNoItems {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.navbar-brand {
+    top: 5px;
+    padding-top: 10px;
+}
+
+.add-form {
+    padding-top: 10%;
+}
+
+.tags-label {
+    float: left;
+    text-align: left;
+    background-color: #88F7B3;
+}
+
+.label {
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #C7DBEB;
+    float: left;
+    text-align: left;
+}
+
+.selected_image {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2rem;
+}
+
+.trade-btn {
+    border: 3px solid #508AA8;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.trade-btn i {
+    padding: 2rem;
+}
+
+.trade-btn span {
+    padding-right: 2rem;
+}

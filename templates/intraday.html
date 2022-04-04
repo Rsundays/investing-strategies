@@ -1,0 +1,65 @@
+{% include "header.html" %}
+
+<!-- Section Title -->
+<div class="container-fluid">
+    <div class="row text-center">
+        <header>
+            <h1 class="strategy-title">Trading Image Category Filtering</h1>
+        </header>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="wrapper">
+        <main id="gridCardsWithFilter">
+
+            <h1 class="header">Trading Image Category Filtering</h1>
+
+            <section class="filter-categories">
+                <span><input type="checkbox" id="filter-all" class="filter-input filter-all" name="filter"
+                             checked><label for="filter-all" class="filter-label" autocomplete="off" checked>All</label></span>
+                {% for tag in tags: %}
+                <span><input type="checkbox" id="{{tag}}" class="filter-input" name="filter"><label for="{{tag}}"
+                                                                                                    class="filter-label"
+                                                                                                    autocomplete="off">{{ tag }}</label></span>
+                {% endfor %}
+            </section>
+
+            <section>
+                <span>You currently have a total of {{ total }} images loaded.</span>
+            </section>
+
+            <!-- Gallery of grid-cards -->
+            <section class="filter-wrap">
+                <div class="grid-container">
+                    {% for trade in trades: %}
+                    <div class="filter-item {% for tag in trade.tags.split(','): %} {{ tag }} {% endfor %}">
+                        <div class="column img-container">
+                            <a href="{{ url_for('select', trade_id=trade.id) }}">
+                                <img class="hover-center" src="{{ trade.img_url }}"
+                                     title="{% for tag in trade.tags.split(','): %} {{ tag }} {% endfor %}" alt="{{ trade.name }}"><i
+                                    class="fa fa-trash-can"></i>
+                            </a>
+                        </div>
+                        <div class="filter-mask"></div> <!-- mask is last -->
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="filter-no-item">Parece que no hay ninguna imagen en esta categoria.</div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+{% if role == "Admin" %}
+<form action="{{ url_for('add_graph') }}" method="POST">
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-sm">Add Graph</button>
+    </div>
+</form>
+{% endif %}
+
+{% include "footer.html" %}
+

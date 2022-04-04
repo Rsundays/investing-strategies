@@ -1,0 +1,35 @@
+<!-- Footer -->
+<footer id="footer" class="mt-auto">
+    <!--        <ul class="icons">-->
+    <!--            <li><a href="https://www.facebook.com/profile.php?id=100076703130757" target="_blank"-->
+    <!--                   class="icon brands alt fa-facebook-f"><span-->
+    <!--                    class="label">Facebook</span></a></li>-->
+    <!--            &lt;!&ndash;						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>&ndash;&gt;-->
+    <!--            <li><a href="https://www.instagram.com/emagn.digitalart/" target="_blank"-->
+    <!--                   class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>-->
+    <!--            <li><a href="mailto:info@emagndigitalart.com" class="icon solid alt fa-envelope"><span-->
+    <!--                    class="label">Email</span></a></li>-->
+    <!--            <li><a href="https://opensea.io/eMagn" target="_blank"-->
+    <!--                   class="icon brands alt fa-ethereum"><span class="label">Opensea</span></a></li>-->
+    <!--        </ul>-->
+    <div class="container">
+        {% if logged_user == True: %}
+        <form action="{{ url_for('logout') }}" method="post">
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-dark btn-sm">Log Out</button>
+            </div>
+        </form>
+        {% endif %}
+        <ul class="copyright">
+            <li>&copy; Investing Strategies</li>
+            <li>by: RSun</li>
+        </ul>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

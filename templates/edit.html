@@ -1,0 +1,49 @@
+{% include "header.html" %}
+
+<!-- Section User Cards -->
+<div class="signup-form">
+    <form action="{{ url_for('edit_user', user_id=user.id) }}" method="post">
+        <h2>User Update</h2>
+        <p>You can update user information here!</p>
+        <hr>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+					<span class="input-group-text">
+						<span class="fa fa-user"></span>
+					</span>
+                </div>
+                <input type="text" class="form-control" name="update_name" value="{{user.name}}" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fa fa-at"></i>
+					</span>
+                </div>
+                <input type="email" class="form-control" name="update_email" value="{{user.email}}" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+					<span class="input-group-text">
+						<i class="fa fa-lock"></i>
+					</span>
+                </div>
+                <select name="update_role" class="form-control" id="exampleFormControlSelect1">
+                    <option>Admin</option>
+                    <option selected="selected">User</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Update</button>
+        </div>
+    </form>
+</div>
+
+{% include "footer.html" %}

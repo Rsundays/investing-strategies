@@ -1,0 +1,75 @@
+{% include "header.html" %}
+
+<!-- Section Title -->
+<div class="container-fluid">
+    <div class="row text-center">
+        <header>
+            <h1 class="strategy-title">Superacion de la Media</h1>
+        </header>
+    </div>
+</div>
+
+<!--Select the stock section-->
+<div class="container justify-content-center d-flex">
+    <div class="row d-flex">
+        <div class="col-12">
+            <form id="stockform" method="POST">
+                {{ form.hidden_tag() }}
+                {{ form.stock }}
+            </form>
+            <!--            <form method="POST">-->
+            <!--                {{ form.hidden_tag() }}-->
+            <!--                {{ form.stock }}-->
+            <!--                <input type="submit" class="btn btn-primary">-->
+            <!--            </form>-->
+        </div>
+    </div>
+</div>
+
+<!-- Main Section -->
+<div class="container">
+    <div class="row main-section">
+        <div class="col-sm-6 d-flex justify-content-center">
+            <div class="container">
+                {% if action=="BUY": %}
+                <div class="buy">
+                {% else %}
+                <div class="sell">
+                {% endif %}
+                    <strong class="text-center">{{ action }}</strong>
+                </div>
+                <div class="text-center graph-title">{{ stock_name }}</div>
+                    <div class="graph">
+                        <img class="img-fluid" src="data:image/png;base64,{{graph}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-center">
+                <div class="container">
+                    <div class="row d-flex">
+                        <div class="col-4 label-sup">Ultima Fecha</div>
+                        <div class="col-8 values">{{ date }}</div>
+                    </div>
+                    <div class="row d-flex">
+                        <div class="col-4 label-sup">Meses en Tendencia</div>
+                        <div class="col-8 values">{{ tendency_months }}</div>
+                    </div>
+                    <div class="row d-flex">
+                        <div class="col-4 label-sup">Fecha Cambio Tendencia</div>
+                        <div class="col-8 values">{{ tendency_change_date }}</div>
+                    </div>
+                    <div class="row d-flex">
+                        <div class="col-4 label-sup">Rentabilidad</div>
+                        <div class="col-8 values">{{ profit }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--These 2 lines of code are to test AJAX-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='front.js')}}"></script>
+
+{% include "footer.html" %}

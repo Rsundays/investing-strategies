@@ -1,0 +1,25 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- Section Title -->
+<div class="container-fluid">
+    <div class="row text-center">
+        <header>
+            <h1 class="strategy-title">Trading Image Category Filtering</h1>
+        </header>
+    </div>
+</div>
+
+<div class="signup-form">
+    <h2 class="heading">Editar Trade</h2>
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    <div class="container">
+        <div class="adding">
+            <p>Recuerda que para anadir una imagen desde Google Drive, solo tienes que copiar el enlance.</p>
+        </div>
+    </div>
+</div>
+
+
+{% include "footer.html" %}
+
