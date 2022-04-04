@@ -93,6 +93,11 @@ def users_only(f):
     return decorated_function
 
 
+@app.route("/")
+def home():
+    return render_template("login.html")
+
+
 @app.route("/superacion-media", methods=["POST", "GET"])
 @users_only
 def superacion_media():
