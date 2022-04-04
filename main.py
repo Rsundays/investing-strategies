@@ -18,7 +18,7 @@ Bootstrap(app)
 DB = os.environ.get("DB")
 URI = os.environ.get("DATABASE_URL", DB)
 if URI.startswith("postgres://"):
-    uri = URI.replace("postgres://", "postgresql://", 1)
+    URI = URI.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
