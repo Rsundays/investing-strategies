@@ -52,10 +52,10 @@ class Trades(db.Model):
 db.create_all()
 
 logged_user = False
-email_acc_list = []
+# email_acc_list = []
 all_users = User.query.all()
-for user in all_users:
-    email_acc_list.append(user.email)
+# for user in all_users:
+#     email_acc_list.append(user.email)
 if not all_users:
     admin = User(email=os.environ.get("Admin"), role="Admin")
     db.session.add(admin)
@@ -68,12 +68,12 @@ def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         try:
-            logged_user = session.get("user")["email"]
-            logged_user_role = User.query.filter_by(email=logged_user).first()
+            logged_usr = session.get("user")["email"]
+            logged_usr_role = User.query.filter_by(email=logged_usr).first()
         except TypeError:
             return abort(403, description="You have to be an Admin and login to access this site.")
         try:
-            if logged_user_role.role != "Admin":
+            if logged_usr_role.role != "Admin":
                 return abort(403, description="Only Admins have access to this section.")
         except TypeError:
             return abort(403, description="You have to be an Admin and login to access this site.")
@@ -85,9 +85,10 @@ def admin_only(f):
 def users_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        logged_user = session.get("user")["email"]
+        logged_usr = session.get("user")["email"]
+        registered_usr_email = User.query.filter_by(email=logged_usr).first()
         try:
-            if not logged_user:
+            if not registered_usr_email:
                 return abort(403, description="Only registered users have access to this section.")
         except TypeError:
             return abort(403, description="You have to be a registered user and login to access this site.")
