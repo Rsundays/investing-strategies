@@ -156,7 +156,7 @@ def intraday():
     list_tags = []
     for trade in all_trades:
         if trade.tags:
-            trade_tags = trade.tags.split(",")
+            trade_tags = trade.tags.split(";")
             for tag in trade_tags:
                 if tag not in list_tags:
                     list_tags.append(tag)
@@ -196,7 +196,7 @@ def select():
         logged_user = True
     trade_id = request.args.get("trade_id")
     selected_trade = Trades.query.get(trade_id)
-    selected_trade_tags = selected_trade.tags.split(",")
+    selected_trade_tags = selected_trade.tags.split(";")
 
     return render_template("select.html", selected_trade=selected_trade,
                            trade_tags=selected_trade_tags,
