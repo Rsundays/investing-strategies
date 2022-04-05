@@ -85,9 +85,9 @@ def admin_only(f):
 def users_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        logged_user = session.get("user")
+        logged_user = session.get("user")["email"]
         try:
-            if not logged_user["email"]:
+            if not logged_user:
                 return abort(403, description="Only registered users have access to this section.")
         except TypeError:
             return abort(403, description="You have to be a registered user and login to access this site.")
