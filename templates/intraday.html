@@ -34,11 +34,11 @@
             <section class="filter-wrap">
                 <div class="grid-container">
                     {% for trade in trades: %}
-                    <div class="filter-item {% for tag in trade.tags.split(','): %} {{ tag }} {% endfor %}">
+                    <div class="filter-item {% for tag in trade.tags.split(';'): %} {{ tag }} {% endfor %}">
                         <div class="column img-container">
                             <a href="{{ url_for('select', trade_id=trade.id) }}">
                                 <img class="hover-center" src="{{ trade.img_url }}"
-                                     title="{% for tag in trade.tags.split(','): %} {{ tag }} {% endfor %}" alt="{{ trade.name }}"><i
+                                     title="{% for tag in trade.tags.split(';'): %} {{ tag }} {% endfor %}" alt="{{ trade.name }}"><i
                                     class="fa fa-trash-can"></i>
                             </a>
                         </div>
