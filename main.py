@@ -87,7 +87,7 @@ def users_only(f):
     def decorated_function(*args, **kwargs):
         logged_user = session.get("user")
         try:
-            if logged_user["email"] not in email_acc_list:
+            if not logged_user["email"]:
                 return abort(403, description="Only registered users have access to this section.")
         except TypeError:
             return abort(403, description="You have to be a registered user and login to access this site.")
