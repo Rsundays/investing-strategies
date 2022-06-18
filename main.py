@@ -430,7 +430,6 @@ def login():
 def callback():
     token = oauth.google.authorize_access_token()
     user = token.get("userinfo")
-    #user = oauth.google.parse_id_token(token)
     if user:
         session["user"] = user
 
