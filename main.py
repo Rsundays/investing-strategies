@@ -49,6 +49,14 @@ class Trades(db.Model):
     img_url = db.Column(db.String(700), nullable=False)
 
 
+class Swing(db.Model):
+    __tablename__ = "swing_graphs"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(250), nullable=False)
+    tags = db.Column(db.String(500), nullable=True)
+    img_url = db.Column(db.String(700), nullable=False)
+
+
 db.create_all()
 
 logged_user = False
@@ -165,6 +173,29 @@ def intraday():
                            role=current_user_role.role)
 
 
+@app.route("/swing-trading", methods=["POST", "GET"])
+@users_only
+def swing():
+    global logged_user
+    current_user_email = session.get("user")["email"]
+    current_user_role = User.query.filter_by(email=current_user_email).first()
+    if session.get("user"):
+        logged_user = True
+    all_swings = Swing.query.all()
+    total = len(all_swings)
+    list_swing_tags = []
+    if all_swings:
+        for swing_ in all_swings:
+            if swing_.tags:
+                swing_tags = swing_.tags.split(";")
+                for tag in swing_tags:
+                    if tag not in list_swing_tags:
+                        list_swing_tags.append(tag)
+
+    return render_template("swing.html", swings=all_swings, tags=list_swing_tags, total=total, logged_user=logged_user,
+                           role=current_user_role.role)
+
+
 @app.route("/add-graph", methods=["POST", "GET"])
 @admin_only
 def add_graph():
@@ -186,6 +217,27 @@ def add_graph():
     return render_template("addGraphs.html", form=form, logged_user=logged_user)
 
 
+@app.route("/add-swing", methods=["POST", "GET"])
+@admin_only
+def add_swing():
+    global logged_user
+    if session.get("user"):
+        logged_user = True
+    form = ImageUploadForm()
+    if form.validate_on_submit():
+        name = form.trade_name.data
+        string_of_tags = form.trade_tags.data
+        url_to_modify = form.trade_url.data
+        split_url = url_to_modify.split("/")
+        url = f"https://drive.google.com/uc?export=view&id={split_url[5]}"
+        new_swing = Swing(name=name, tags=string_of_tags, img_url=url)
+        db.session.add(new_swing)
+        db.session.commit()
+        return redirect(url_for("swing"))
+
+    return render_template("addSwings.html", form=form, logged_user=logged_user)
+
+
 @app.route("/select", methods=["POST", "GET"])
 @users_only
 def select():
@@ -204,6 +256,24 @@ def select():
                            role=current_user_role.role)
 
 
+@app.route("/select-swing", methods=["POST", "GET"])
+@users_only
+def select_swing():
+    global logged_user
+    current_user_email = session.get("user")["email"]
+    current_user_role = User.query.filter_by(email=current_user_email).first()
+    if session.get("user"):
+        logged_user = True
+    swing_id = request.args.get("swing_id")
+    selected_swing = Swing.query.get(swing_id)
+    selected_swing_tags = selected_swing.tags.split(";")
+
+    return render_template("selectSwing.html", selected_swing=selected_swing,
+                           trade_tags=selected_swing_tags,
+                           logged_user=logged_user,
+                           role=current_user_role.role)
+
+
 @app.route("/delete", methods=["POST", "GET"])
 @admin_only
 def delete_trade():
@@ -212,6 +282,16 @@ def delete_trade():
     db.session.delete(trade_to_delete)
     db.session.commit()
     return redirect(url_for("intraday"))
+
+
+@app.route("/delete-swing", methods=["POST", "GET"])
+@admin_only
+def delete_swing():
+    swing_id = request.args.get("swing_id")
+    swing_to_delete = Swing.query.get(swing_id)
+    db.session.delete(swing_to_delete)
+    db.session.commit()
+    return redirect(url_for("swing"))
 
 
 @app.route("/edit-trade", methods=["POST", "GET"])
@@ -238,6 +318,33 @@ def edit_trade():
         db.session.commit()
         return redirect(url_for("intraday"))
     return render_template("editTrade.html", form=form, selected_trade=selected_trade, logged_user=logged_user,
+                           role=current_user_role.role)
+
+
+@app.route("/edit-swing", methods=["POST", "GET"])
+@admin_only
+def edit_swing():
+    global logged_user
+    current_user_email = session.get("user")["email"]
+    current_user_role = User.query.filter_by(email=current_user_email).first()
+    if session.get("user"):
+        logged_user = True
+    swing_id = request.args.get("swing_id")
+    selected_swing = Swing.query.get(swing_id)
+    form = ImageUpdateForm(
+        trade_name=selected_swing.name,
+        trade_tags=selected_swing.tags,
+        trade_url=selected_swing.img_url
+    )
+    if form.validate_on_submit():
+        swing_id = request.args.get("swing_id")
+        selected_swing = Swing.query.get(swing_id)
+        selected_swing.name = form.trade_name.data
+        selected_swing.tags = form.trade_tags.data
+        selected_swing.img_url = form.trade_url.data
+        db.session.commit()
+        return redirect(url_for("swing"))
+    return render_template("editSwing.html", form=form, selected_trade=selected_swing, logged_user=logged_user,
                            role=current_user_role.role)
 
 

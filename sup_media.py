@@ -15,15 +15,20 @@ class SupMedia:
 
     def __init__(self, ticker):
         today = datetime.date.today()
-        end_year = today.year
-        end_month = today.month
-
+        end_day = today.replace(day=1).weekday()
+        if end_day == 5:
+            end_day = today.replace(day=3).day
+        elif end_day == 6:
+            end_day = today.replace(day=2).day
+        else:
+            end_day = today.replace(day=1).day
         # start = dt.datetime(start_year, start_month, 1)
         start = dt.datetime(2019, 1, 1)
-        end = dt.datetime(end_year, end_month, 1)
+        end = dt.datetime(today.year, today.month, end_day)
         yahoo_df = pdr.get_data_yahoo(ticker, start, end, interval="m")
         stock_data = StockDataFrame.retype(yahoo_df)
         self.stock_info = stock_data[~stock_data.index.duplicated(keep="first")][:-1]
+        print(self.stock_info)
         self.ticker_name = ticker
 
     def get_last_closing_price(self):

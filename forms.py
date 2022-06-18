@@ -14,14 +14,14 @@ class User(FlaskForm):
 
 
 class ImageUploadForm(FlaskForm):
-    trade_name = StringField("Trade Name", validators=[DataRequired()])
+    trade_name = StringField("Image Name", validators=[DataRequired()])
     trade_tags = StringField("Tags separados por ; sin espacios", validators=[DataRequired()])
     trade_url = StringField("Google Drive URL", validators=[DataRequired()])
     submit = SubmitField("Upload")
 
 
 class ImageUpdateForm(FlaskForm):
-    trade_name = StringField("Trade Name", validators=[DataRequired()])
+    trade_name = StringField("Image Name", validators=[DataRequired()])
     trade_tags = StringField("Tags separados por ; sin espacios", validators=[DataRequired()])
     trade_url = StringField("Google Drive URL", validators=[DataRequired()])
     submit = SubmitField("Save")
